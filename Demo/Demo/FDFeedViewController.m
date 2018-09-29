@@ -75,7 +75,7 @@ typedef NS_ENUM(NSInteger, FDSimulatedCacheMode) {
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    FDFeedCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FDFeedCell" forIndexPath:indexPath];
+    FDFeedCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FDFeedCell"];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -88,6 +88,10 @@ typedef NS_ENUM(NSInteger, FDSimulatedCacheMode) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     cell.entity = self.feedEntitySections[indexPath.section][indexPath.row];
+}
+
+- (NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return @[@"A",@"B",@"C",@"D"];
 }
 
 #pragma mark - UITableViewDelegate
